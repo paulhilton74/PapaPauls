@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papa Paul's Pizza</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDB5WGL4lAdNV5HRK6Fg7vsvh8QGXM9B78",
+            authDomain: "pizzapp-14063.firebaseapp.com",
+            projectId: "pizzapp-14063",
+            storageBucket: "pizzapp-14063.appspot.com",
+            messagingSenderId: "836486124197",
+            appId: "1:836486124197:web:ec7ee2e2abef040e38b34c",
+            measurementId: "G-7RV7FZ54R3"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Make db and other functions accessible globally
+        window.db = db;
+        window.addDoc = addDoc;
+        window.collection = collection;
+        window.getDocs = getDocs;
+        window.serverTimestamp = serverTimestamp;
+    </script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <img src="logo.png" alt="Papa Paul's Pizzeria Logo" class="splash-logo">
+            <h1>Welcome to Papa Paul's Pizza</h1>
+            <button onclick="hideSplashScreen()">Ready to Order</button>
+        </div>
+    </div>
+
+    <div id="main-content" class="container">
+        <img src="logo.png" alt="Papa Paul's Pizzeria Logo" class="main-logo">
+        <h1>Lukes 18th Birthday</h1>
+        <h2>Pizza Party</h2>
+        <div class="menu">
+            <div class="pizza-item">
+                <img src="margherita.jpg" alt="Margherita Pizza">
+                <div class="pizza-info">
+                    <h3>Margherita Pizza</h3>
+                    <button onclick="selectPizza('Margherita')">Select</button>
+                </div>
+            </div>
+            <div class="pizza-item">
+                <img src="pepperoni.jpg" alt="Pepperoni Pizza">
+                <div class="pizza-info">
+                    <h3>Pepperoni Pizza</h3>
+                    <button onclick="selectPizza('Pepperoni')">Select</button>
+                </div>
+            </div>
+            <div class="pizza-item">
+                <img src="veggie.jpg" alt="Veggie Pizza">
+                <div class="pizza-info">
+                    <h3>Veggie Pizza</h3>
+                    <button onclick="selectPizza('Veggie')">Select</button>
+                </div>
+            </div>
+            <div class="pizza-item">
+                <img src="chicken.jpg" alt="Chicken Pizza">
+                <div class="pizza-info">
+                    <h3>Chicken Pizza</h3>
+                    <button onclick="selectPizza('Chicken')">Select</button>
+                </div>
+            </div>
+        </div>
+        <div class="order-details">
+            <label for="name">Enter Your Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <button onclick="placeOrder()">Place Order</button>
+        </div>
+        <h2>Order Summary:</h2>
+        <p id="orderSummary"></p>
+        <h2>All Orders:</h2>
+        <ul id="ordersList"></ul>
+    </div>
+</body>
+</html>
