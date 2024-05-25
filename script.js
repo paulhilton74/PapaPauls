@@ -30,6 +30,7 @@ async function placeOrder() {
         const docRef = await addDoc(collection(db, "orders"), order);
         console.log("Order placed with ID: ", docRef.id);
         loadOrders();
+        document.getElementById('orderPlacedAudio').play(); // Play the audio when order is placed
     } catch (error) {
         console.error("Error adding order: ", error);
     }
