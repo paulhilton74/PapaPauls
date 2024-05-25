@@ -48,6 +48,7 @@
         <img src="logo.png" alt="Papa Paul's Pizzeria Logo" class="main-logo">
         <h1>Lukes 18th Birthday</h1>
         <h2>Pizza Party</h2>
+        <h3>SELECT YOUR PIZZA AND THEN ENTER YOUR NAME</h3>
         <div class="menu">
             <div class="pizza-item">
                 <img src="margherita.jpg" alt="Margherita Pizza">
@@ -71,7 +72,7 @@
                 </div>
             </div>
             <div class="pizza-item">
-                <img src="Chicken.jpg" alt="Chicken Pizza">
+                <img src="chicken.jpg" alt="Chicken Pizza">
                 <div class="pizza-info">
                     <h3>Chicken Pizza</h3>
                     <button onclick="selectPizza('Chicken')">Select</button>
@@ -87,6 +88,8 @@
         <p id="orderSummary"></p>
         <h2>All Orders:</h2>
         <ul id="ordersList"></ul>
+        <button onclick="location.href='orders.html'">View All Orders</button>
+        <audio id="orderPlacedAudio" src="gord.mp3" preload="auto"></audio>
     </div>
 </body>
 </html>
